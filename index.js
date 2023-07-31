@@ -23,6 +23,10 @@ server.get("/playlist/:id", (req, res) => {
   });
 });
 
+server.get("/", (req, res) => {
+  res.json({ hello: "Xin chao" });
+});
+
 server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
