@@ -24,7 +24,7 @@ server.get("/playlist/:id", (req, res) => {
 });
 
 server.get("/", (req, res) => {
-  res.json({ hello: "Xin chao" });
+  ZingMp3.getHome().then((value) => res.json(value.data));
 });
 
 server.listen(PORT, () => {
