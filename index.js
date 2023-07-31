@@ -6,14 +6,15 @@ import { ZingMp3 } from "zingmp3-api-full";
 dotenv.config();
 const server = express();
 
-// app.use((req, res, next) => {
-//   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
-//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-//   next();
-// });
-
 server.use(cors());
+
+server.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
