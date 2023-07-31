@@ -6,11 +6,7 @@ import { ZingMp3 } from "zingmp3-api-full";
 dotenv.config();
 const server = express();
 
-const corsOptions = {
-  origin: 'http://localhost:5173',
-};
-
-server.use(cors(corsOptions));
+server.use(cors());
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
