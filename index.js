@@ -10,6 +10,12 @@ server.use(cors());
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
+server.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  next();
+});
+
+
 
 server.get("/:id", (req, res) => {
   ZingMp3.getSong(req.params.id).then((data) => {
